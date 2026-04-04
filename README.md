@@ -7,8 +7,6 @@
 ![GitHub issues](https://img.shields.io/github/issues/yasith-1/Java-OOP?style=for-the-badge&logo=github&color=red)
 ![GitHub license](https://img.shields.io/github/license/yasith-1/Java-OOP?style=for-the-badge&logo=github&color=yellow)
 
-<img src="screenshots/dashboard.png" width="100%">
-
 </div>
 
 ## 📋 Overview
