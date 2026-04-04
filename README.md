@@ -37,8 +37,8 @@ The **Java OOP Concepts Visualizer** is a high-fidelity, interactive educational
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yasith-1/Java-OOP-Guide.git
-   cd Java-OOP-Guide
+   git clone https://github.com/yasith-1/Java-OOP.git
+   cd Java-OOP
    ```
 
 2. **Open the Guide:**
@@ -134,7 +134,7 @@ Explains how interfaces define a set of rules that classes must follow, enabling
 ## 📁 Project Structure
 
 ```
-📦 Java-OOP-Guide/
+📦 Java-OOP/
 ├── 📁 css/                # Styling and animations
 │   └── 📜 style.css       # Design system and glassmorphism
 ├── 📁 js/                 # Interaction logic
