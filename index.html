@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP - සම්පූර්ණ මාර්ගෝපදේශය</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon"
+    href="https://thumbs.dreamstime.com/b/oop-logo-oop-letter-oop-letter-logo-design-initials-oop-logo-linked-circle-uppercase-monogram-logo-oop-typography-394762264.jpg"
+    type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <header>
+    <div class="header-badge"><span></span> සම්පූර්ණ අධ්‍යයන මාර්ගෝපදේශය</div>
+    <h1>Java OOP</h1>
+    <p class="subtitle">Object-Oriented Programming ප්‍රධාන සංකල්ප 5</p>
+    <div class="java-tag">// ජීවිතේ උදාහරණ සමඟ ඉගෙනගනිමු</div>
+  </header>
+
+  <nav class="nav-pills">
+    <div class="nav-pill active" onclick="scrollToSection(0)">
+      <span class="pill-num">1</span> Class & Object
+    </div>
+    <div class="nav-pill" onclick="scrollToSection(1)">
+      <span class="pill-num">2</span> Encapsulation
+    </div>
+    <div class="nav-pill" onclick="scrollToSection(2)">
+      <span class="pill-num">3</span> Inheritance
+    </div>
+    <div class="nav-pill" onclick="scrollToSection(3)">
+      <span class="pill-num">4</span> Polymorphism
+    </div>
+    <div class="nav-pill" onclick="scrollToSection(4)">
+      <span class="pill-num">5</span> Abstraction
+    </div>
+    <div class="nav-pill" onclick="scrollToSection(5)">
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- CARD 1: Class & Object -->
+    <div class="concept-card c1 reveal" id="concept-0">
+      <div class="card-header">
+        <div class="concept-icon">🏗️</div>
+        <div class="header-text">
+          <span class="concept-num">Concept 01</span>
+          <div class="concept-title">Class & Object</div>
+          <div class="concept-sinhala">පන්තිය සහ වස්තුව</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="definition-box">
+          <strong>Class</strong> = නිවසක <strong>සැලැස්ම (Blueprint)</strong>. ලක්ෂණ හා ක්‍රියාකාරකම් සඳහා
+          "අච්චුව".<br><br>
+          <strong>Object</strong> = ඒ සැලැස්ම පාවිච්චි කරලා හදපු <strong>සැබෑ නිවස</strong>. එකම Class එකෙන් Objects
+          ගෙඩි ගාණ හදන්න පුළුවන්!
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">ජීවිතේ උදාහරණය</div>
+          <div class="example-text">
+            🏠 <strong style="color:#fff">Class:</strong> නිවසේ සැලැස්ම — කාමර කීයක්ද, පාට මොකක්ද කියලා තිරණය කරනවා.
+            හැබැයි ඒ සැලැස්මෙ ජීවත් වෙන්නේ නෑ.<br><br>
+            🏡 <strong style="color:#fff">Object:</strong> නිමල්ගේ ගේ, කමල්ගේ ගේ — ඒ සැලැස්ම (Class) ම භාවිතා කරලා හදපු
+            සැබෑ නිවාස.
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div class="diagram-title">Visual Diagram</div>
+          <div class="blueprint-diagram">
+            <div class="blueprint-box">
+              <div class="box-label">CLASS (Blueprint)</div>
+              <div class="box-title">🚗 Car</div>
+              <div class="box-attrs">
+                brand: String<br>
+                color: String<br>
+                ──────────<br>
+                drive()
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;color:var(--accent1);font-size:1.5rem;padding:0 10px;">→</div>
+            <div class="object-box">
+              <div class="obj-label">OBJECT</div>
+              <div class="obj-name">🔴 Toyota</div>
+              <div class="obj-vals">brand = "Toyota"<br>color = "Red"</div>
+            </div>
+            <div class="object-box">
+              <div class="obj-label">OBJECT</div>
+              <div class="obj-name">⚫ Honda</div>
+              <div class="obj-vals">brand = "Honda"<br>color = "Black"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+            </div>
+            <div class="code-lang">Java</div>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <div class="code-content"><span class="cmt">// මේක තමයි Blueprint එක (Class)</span>
+            <span class="kw">class</span> <span class="cls">Car</span> {
+
+            <span class="cmt">// Attributes (ලක්ෂණ)</span>
+            <span class="type">String</span> <span class="var">brand</span>;
+            <span class="type">String</span> <span class="var">color</span>;
+
+            <span class="cmt">// Methods (ක්‍රියාකාරකම්)</span>
+            <span class="kw">void</span> <span class="fn">drive</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="var">color</span> + <span
+              class="str">" "</span> + <span class="var">brand</span> + <span class="str">" කාරය ධාවනය වේ."</span>);
+            }
+            }
+
+            <span class="kw">public class</span> <span class="cls">Main</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+            <span class="var">args</span>) {
+
+            <span class="cmt">// Blueprint පාවිච්චි කරලා Objects හදනවා</span>
+            <span class="cls">Car</span> <span class="var">nimalGeCar</span> = <span class="kw">new</span> <span
+              class="cls">Car</span>();
+            <span class="var">nimalGeCar</span>.<span class="var">brand</span> = <span class="str">"Toyota"</span>;
+            <span class="var">nimalGeCar</span>.<span class="var">color</span> = <span class="str">"Red"</span>;
+            <span class="var">nimalGeCar</span>.<span class="fn">drive</span>();
+
+            <span class="cls">Car</span> <span class="var">kamalGeCar</span> = <span class="kw">new</span> <span
+              class="cls">Car</span>();
+            <span class="var">kamalGeCar</span>.<span class="var">brand</span> = <span class="str">"Honda"</span>;
+            <span class="var">kamalGeCar</span>.<span class="var">color</span> = <span class="str">"Black"</span>;
+            <span class="var">kamalGeCar</span>.<span class="fn">drive</span>();
+            }
+            }
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-label">Output</div>
+          <div class="output-line">Red Toyota කාරය ධාවනය වේ.</div>
+          <div class="output-line">Black Honda කාරය ධාවනය වේ.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Encapsulation -->
+    <div class="concept-card c2 reveal" id="concept-1">
+      <div class="card-header">
+        <div class="concept-icon">🔐</div>
+        <div class="header-text">
+          <span class="concept-num">Concept 02</span>
+          <div class="concept-title">Encapsulation</div>
+          <div class="concept-sinhala">දත්ත සැඟවීම</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="definition-box">
+          දත්ත (<strong>variables</strong>) සහ ඒ දත්ත හසුරුවන <strong>methods</strong> එකම තැනකට ගොනු කිරීම.<br><br>
+          <strong>private</strong> variables — කෙලින්ම access කරන්න බෑ.<br>
+          <strong>public getters/setters</strong> — ආරක්ෂිත ක්‍රමවේදය හරහා පමණයි access කළ හැකි.
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">ජීවිතේ උදාහරණය</div>
+          <div class="example-text">
+            🏦 <strong style="color:#fff">බැංකු ගිණුම:</strong> ඔයාගේ <strong>balance</strong> (ශේෂය) කාටවත් කෙලින්ම
+            වෙනස් කරන්න බෑ — ඒක <code style="color:#a78bfa">private</code> නිසා.<br><br>
+            💳 deposit() හෝ withdraw() <strong>method</strong> හරහා පමණයි ගනුදෙනු කළ හැකි. ඒකෙන් ආරක්ෂාව සහතික වෙනවා!
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div class="diagram-title">Visual Diagram</div>
+          <div class="encap-diagram">
+            <div class="shield-outer">
+              <div class="shield-label">Private Data</div>
+              <div class="private-field"><span class="kw" style="color:#ef4444">private</span> <span
+                  style="color:#ffa657">double</span> balance = <span style="color:#79c0ff">5000</span></div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:8px;">⛔ කෙලින්ම access = Error!</div>
+            </div>
+            <div style="display:flex;align-items:center;color:#7c3aed;font-size:1.3rem;">⇄</div>
+            <div class="methods-box">
+              <div class="method-pill">deposit(amount) <span class="method-tag">public</span></div>
+              <div class="method-pill">withdraw(amount) <span class="method-tag">public</span></div>
+              <div class="method-pill">getBalance() <span class="method-tag">getter</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+            </div>
+            <div class="code-lang">Java</div>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <div class="code-content"><span class="cmt">// මේක තමයි class එක: BankAccount</span>
+            <span class="kw">class</span> <span class="cls">BankAccount</span> {
+
+            <span class="cmt">// private - ආරක්ෂාව සඳහා (කෙලින්ම access කළ නොහැක)</span>
+            <span class="kw">private</span> <span class="type">double</span> <span class="var">balance</span>;
+
+            <span class="cmt">// සල්ලි දාන method එක (public නිසා පිටතින් access කළ හැක)</span>
+            <span class="kw">public void</span> <span class="fn">deposit</span>(<span class="type">double</span> <span
+              class="var">amount</span>) {
+            <span class="kw">if</span> (<span class="var">amount</span> > <span class="num">0</span>) {
+            <span class="var">balance</span> = <span class="var">balance</span> + <span class="var">amount</span>;
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"රුපියල් "</span> +
+            <span class="var">amount</span> + <span class="str">" ක් තැන්පත් කරන ලදී."</span>);
+            }
+            }
+
+            <span class="cmt">// Getter - balance බලාගන්න වෙන්කර ඇති method එක</span>
+            <span class="kw">public</span> <span class="type">double</span> <span class="fn">getBalance</span>() {
+            <span class="kw">return</span> <span class="var">balance</span>;
+            }
+            }
+
+            <span class="kw">public class</span> <span class="cls">Main</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+            <span class="var">args</span>) {
+
+            <span class="cmt">// අලුත් BankAccount object එකක් නිර්මාණය කිරීම</span>
+            <span class="cls">BankAccount</span> <span class="var">myAccount</span> = <span class="kw">new</span> <span
+              class="cls">BankAccount</span>();
+
+            <span class="cmt">// myAccount.balance = 10000; ❌ මෙසේ කිරීම Error එකකි! (balance යනු private variable එකක්
+              නිසා)</span>
+
+            <span class="cmt">// නිවැරදි ක්‍රමයට සල්ලි තැන්පත් කිරීම</span>
+            <span class="var">myAccount</span>.<span class="fn">deposit</span>(<span class="num">5000</span>);
+
+            <span class="cmt">// නිවැරදි ක්‍රමයට ඉතිරි මුදල බලාගැනීම</span>
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"ශේෂය: "</span> +
+            <span class="var">myAccount</span>.<span class="fn">getBalance</span>());
+            }
+            }
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-label">Output</div>
+          <div class="output-line">රුපියල් 5000.0 ක් තැන්පත් කරන ලදී.</div>
+          <div class="output-line">ශේෂය: 5000.0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: Inheritance -->
+    <div class="concept-card c3 reveal" id="concept-2">
+      <div class="card-header">
+        <div class="concept-icon">🧬</div>
+        <div class="header-text">
+          <span class="concept-num">Concept 03</span>
+          <div class="concept-title">Inheritance</div>
+          <div class="concept-sinhala">උරුමය / ප්‍රවේණිය</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="definition-box">
+          එක Class එකක ලක්ෂණ (<strong>attributes/methods</strong>) තවත් Class එකකට <strong>ලබා දීම</strong>.<br><br>
+          <strong>keyword:</strong> <code style="color:#3fb950">extends</code> — Code නැවත ලියන්නේ නැතිව (<strong>No
+            Duplication</strong>) නව Class හදන්නේ මේ ක්‍රමයට.
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">ජීවිතේ උදාහරණය</div>
+          <div class="example-text">
+            👨‍👦 <strong style="color:#fff">දෙමාපියන් → දරුවන්:</strong> තාත්තාගේ ලක්ෂණ (ඇස් වර්ණය, රුධිර වර්ගය) පුතාට
+            ඉබේ ලැබෙනවා.<br><br>
+            🚗 <strong>Vehicle</strong> (parent) class ට <strong>Car</strong> (child) class <code
+              style="color:#3fb950">extends</code> කළාම, රෝද, engine ලිවීම ආයේ කරන්නේ නෑ!
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div class="diagram-title">Visual Diagram</div>
+          <div class="inherit-diagram">
+            <div class="parent-class">
+              <div class="cls-type">Parent Class / Super Class</div>
+              <div class="cls-name">🐾 Animal</div>
+              <div class="cls-methods">eat() — ආහාර ගැනීම</div>
+            </div>
+            <div class="inherit-arrow">
+              <div class="inherit-line"></div>
+              <div style="font-size:0.65rem;color:var(--accent3);font-family:'JetBrains Mono';margin:4px 0;">extends
+              </div>
+            </div>
+            <div class="inherit-split">
+              <div class="child-branch">
+                <div class="child-line"></div>
+                <div class="child-class">
+                  <div class="cls-type">Child Class</div>
+                  <div class="cls-name">🐕 Dog</div>
+                  <div class="cls-methods">bark() — නිජ method</div>
+                  <div class="inherited">↑ eat() — Animal ගෙන් ලැබේ</div>
+                </div>
+              </div>
+              <div class="child-branch">
+                <div class="child-line"></div>
+                <div class="child-class">
+                  <div class="cls-type">Child Class</div>
+                  <div class="cls-name">🐈 Cat</div>
+                  <div class="cls-methods">meow() — නිජ method</div>
+                  <div class="inherited">↑ eat() — Animal ගෙන් ලැබේ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+            </div>
+            <div class="code-lang">Java</div>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <div class="code-content"><span class="cmt">// Parent Class (Super Class) - මව් පන්තිය</span>
+            <span class="kw">class</span> <span class="cls">Animal</span> {
+
+            <span class="cmt">// හැම සතෙකුටම පොදු ක්‍රියාවක්</span>
+            <span class="kw">void</span> <span class="fn">eat</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"මෙම සත්වයා ආහාර
+              ගනී."</span>);
+            }
+            }
+
+            <span class="cmt">// Child Class - දරුවාගේ පන්තිය ('extends' keyword මගින් Animal ගේ ලක්ෂණ ලබාගැනීම)</span>
+            <span class="kw">class</span> <span class="cls">Dog</span> <span class="kw">extends</span> <span
+              class="cls">Animal</span> {
+
+            <span class="cmt">// බල්ලාට පමණක් ආවේණික ක්‍රියාවක්</span>
+            <span class="kw">void</span> <span class="fn">bark</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"බල්ලා බුරයි: බව්
+              බව්!"</span>);
+            }
+            }
+
+            <span class="kw">public class</span> <span class="cls">Main</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+            <span class="var">args</span>) {
+
+            <span class="cmt">// Dog object එකක් නිර්මාණය කිරීම</span>
+            <span class="cls">Dog</span> <span class="var">myDog</span> = <span class="kw">new</span> <span
+              class="cls">Dog</span>();
+
+            <span class="cmt">// Dog ගේම ක්‍රියාව (bark) කැඳවීම</span>
+            <span class="var">myDog</span>.<span class="fn">bark</span>();
+
+            <span class="cmt">// Animal ගෙන් inherit (ලැබුණු) ක්‍රියාව (eat) කැඳවීම</span>
+            <span class="var">myDog</span>.<span class="fn">eat</span>();
+            }
+            }
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-label">Output</div>
+          <div class="output-line">බල්ලා බුරයි: බව් බව්!</div>
+          <div class="output-line">මෙම සත්වයා ආහාර ගනී.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Polymorphism -->
+    <div class="concept-card c4 reveal" id="concept-3">
+      <div class="card-header">
+        <div class="concept-icon">🎭</div>
+        <div class="header-text">
+          <span class="concept-num">Concept 04</span>
+          <div class="concept-title">Polymorphism</div>
+          <div class="concept-sinhala">බහුරූපතාව</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="definition-box">
+          <strong>Poly</strong> = ගොඩක් | <strong>Morph</strong> = ස්වරූප<br><br>
+          <strong>එකම ක්‍රියාවක්</strong>, විවිධ Objects මගින් <strong>විවිධ ආකාරයට</strong> සිදු කිරීම.<br>
+          <code style="color:#f59e0b">@Override</code> annotation — parent ගේ method override කිරීම.
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">ජීවිතේ උදාහරණය</div>
+          <div class="example-text">
+            🔊 <strong style="color:#fff">makeSound():</strong> හැම සතාම ශබ්ද කරනවා — ඒත් ක්‍රමය වෙනස්!<br><br>
+            🐕 Dog → <strong>"බව් බව්"</strong> &nbsp;|&nbsp; 🐈 Cat → <strong>"ඤාව් ඤාව්"</strong><br>
+            ක්‍රියාව (ශබ්ද) <strong>එකයි</strong>, ක්‍රමය <strong>වෙනස්</strong>.
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div class="diagram-title">Visual Diagram — Method Overriding</div>
+          <div class="poly-diagram">
+            <div class="poly-animal" style="border-color:rgba(100,116,139,0.4);">
+              <span class="poly-emoji" style="animation:none;">🐾</span>
+              <div class="poly-name">Animal</div>
+              <div class="poly-method">makeSound()</div>
+              <div class="poly-output">"සත්වයා ශබ්ද කරයි"</div>
+            </div>
+            <div class="poly-animal">
+              <span class="poly-emoji">🐕</span>
+              <div class="poly-name">Dog</div>
+              <div class="poly-method">@Override makeSound()</div>
+              <div class="poly-output">"බව් බව්" 🔊</div>
+            </div>
+            <div class="poly-animal">
+              <span class="poly-emoji">🐈</span>
+              <div class="poly-name">Cat</div>
+              <div class="poly-method">@Override makeSound()</div>
+              <div class="poly-output">"ඤාව් ඤාව්" 🔊</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+            </div>
+            <div class="code-lang">Java — Method Overriding</div>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <div class="code-content"><span class="cmt">// Parent Class (සුනඛ හා බළල් යන දෙගොල්ලන්ටම පොදු පන්තිය)</span>
+            <span class="kw">class</span> <span class="cls">Animal</span> {
+            <span class="cmt">// පොදු method එකක්</span>
+            <span class="kw">void</span> <span class="fn">makeSound</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"සත්වයා ශබ්ද
+              කරයි"</span>);
+            }
+            }
+
+            <span class="cmt">// Dog පන්තිය - Animal ගෙන් උරුමය ලබයි (extends)</span>
+            <span class="kw">class</span> <span class="cls">Dog</span> <span class="kw">extends</span> <span
+              class="cls">Animal</span> {
+
+            <span class="cmt">// Polymorphism: මව් පන්තියේ තිබූ method එක මෙහිදී නැවත Override කර වෙනස් කිරීම</span>
+            <span class="ann">@Override</span>
+            <span class="kw">void</span> <span class="fn">makeSound</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"බල්ලා: බව්
+              බව්"</span>);
+            }
+            }
+
+            <span class="cmt">// Cat පන්තිය - මේකත් Animal ගෙන් උරුමය ලබයි (extends)</span>
+            <span class="kw">class</span> <span class="cls">Cat</span> <span class="kw">extends</span> <span
+              class="cls">Animal</span> {
+
+            <span class="cmt">// Polymorphism: මේ පන්තියෙදිත් makeSound කියන එක වෙනස් කරනවා</span>
+            <span class="ann">@Override</span>
+            <span class="kw">void</span> <span class="fn">makeSound</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"පූසා: ඤාව්
+              ඤාව්"</span>);
+            }
+            }
+
+            <span class="kw">public class</span> <span class="cls">Main</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+            <span class="var">args</span>) {
+
+            <span class="cmt">// මව් වස්තුවක් (Animal reference) භාවිතා කරමින් දරු වස්තූන් සෑදීම ද Polymorphism හි
+              කොටසකි</span>
+            <span class="cls">Animal</span> <span class="var">myDog</span> = <span class="kw">new</span> <span
+              class="cls">Dog</span>();
+            <span class="cls">Animal</span> <span class="var">myCat</span> = <span class="kw">new</span> <span
+              class="cls">Cat</span>();
+
+            <span class="cmt">// එකම method එක (makeSound) වස්තුව අනුව වෙනස්-වෙනස් ප්‍රතිචාර දක්වයි</span>
+            <span class="var">myDog</span>.<span class="fn">makeSound</span>();
+            <span class="var">myCat</span>.<span class="fn">makeSound</span>();
+            }
+            }
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-label">Output</div>
+          <div class="output-line">බල්ලා: බව් බව්</div>
+          <div class="output-line">පූසා: ඤාව් ඤාව්</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5: Abstraction -->
+    <div class="concept-card c5 reveal" id="concept-4">
+      <div class="card-header">
+        <div class="concept-icon">🎯</div>
+        <div class="header-text">
+          <span class="concept-num">Concept 05</span>
+          <div class="concept-title">Abstraction</div>
+          <div class="concept-sinhala">වියුක්තකරණය</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="definition-box">
+          <strong>සංකීර්ණ දේවල් සඟවලා</strong>, පරිශීලකයාට <strong>අවශ්‍ය දේ පමණක්</strong> ලබා දීම.<br><br>
+          <code style="color:#ef4444">abstract class</code> — සෘජුව Object හදන්න බෑ. Sub-classes හරහා implement කිරීම
+          <strong>අනිවාර්යය</strong>.
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">ජීවිතේ උදාහරණය</div>
+          <div class="example-text">
+            🚗 <strong style="color:#fff">වාහනය පැදවීම:</strong> Accelerator පෑගුවාම ඉස්සරහට යනවා — <strong>ඇතුලේ
+              කොහොමද?</strong> ඔයාට දැනගන්න ඕන නෑ!<br><br>
+            💳 <strong>ATM:</strong> PIN දාලා cash ගන්නවා — ඇතුලේ bank servers, encryption, database — ඔයාට නොපෙනේ.
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div class="diagram-title">Visual Diagram — User vs Hidden Complexity</div>
+          <div class="abstract-diagram">
+            <div class="user-side">
+              <div class="side-label">👁️ User දකිනවා</div>
+              <div class="user-sees">🚗💨</div>
+              <div class="user-action">startEngine() → Car ගමන් යයි!</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);margin-top:10px;">සරලයි, පහසුයි, clean!</div>
+            </div>
+            <div class="hidden-side">
+              <div class="side-label">⚙️ ඇතුලේ සිදු වේ</div>
+              <div class="hidden-steps">
+                <div class="hidden-step">Fuel Injection System</div>
+                <div class="hidden-step">Piston Compression</div>
+                <div class="hidden-step">Spark Ignition</div>
+                <div class="hidden-step">Crankshaft Rotation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+            </div>
+            <div class="code-lang">Java — Abstract Class</div>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <div class="code-content"><span class="cmt">// Abstract Class — කෙලින්ම Object හදන්න බෑ (සම්පූර්ණ නැති
+              පන්තියක්)</span>
+            <span class="kw">abstract class</span> <span class="cls">Vehicle</span> {
+
+            <span class="cmt">// Abstract method — මෙහි ඇත්තේ නම පමණි (body එකක් නැත), sub-class එකෙන් මෙය අනිවාර්යයෙන්ම
+              සම්පූර්ණ කළ යුතුයි</span>
+            <span class="kw">abstract void</span> <span class="fn">startEngine</span>();
+
+            <span class="cmt">// සාමාන්‍ය method එකක් (මෙය දැනටමත් සම්පූර්ණ කර ඇත)</span>
+            <span class="kw">void</span> <span class="fn">stopEngine</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"එන්ජිම නතර
+              විය."</span>);
+            }
+            }
+
+            <span class="cmt">// Vehicle extend කරලා abstract method එක implement කරනවා / සම්පූර්ණ කරනවා</span>
+            <span class="kw">class</span> <span class="cls">Car</span> <span class="kw">extends</span> <span
+              class="cls">Vehicle</span> {
+
+            <span class="ann">@Override</span>
+            <span class="kw">void</span> <span class="fn">startEngine</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"යතුර කැරකැවීමෙන්
+              කාරයේ එන්ජිම ක්‍රියාත්මක විය."</span>);
+            }
+            }
+
+            <span class="kw">public class</span> <span class="cls">Main</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+            <span class="var">args</span>) {
+
+            <span class="cmt">// myCar කියන Object එක හදන්නේ Car පන්තියෙන්, හැබැයි එය Vehicle එකක් විදියට සලකන්නත්
+              පුළුවන්</span>
+            <span class="cls">Vehicle</span> <span class="var">myCar</span> = <span class="kw">new</span> <span
+              class="cls">Car</span>();
+
+            <span class="var">myCar</span>.<span class="fn">startEngine</span>();
+            <span class="var">myCar</span>.<span class="fn">stopEngine</span>();
+            }
+            }
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-label">Output</div>
+          <div class="output-line">යතුර කැරකැවීමෙන් කාරයේ එන්ජිම ක්‍රියාත්මක විය.</div>
+          <div class="output-line">එන්ජිම නතර විය.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6: Interface -->
+    <div class="concept-card c6 reveal" id="concept-5">
+      <div class="card-header">
+        <div class="concept-icon">🔌</div>
+        <div class="header-text">
+          <span class="concept-num">Concept 06</span>
+          <div class="concept-title">Interface</div>
+          <div class="concept-sinhala">අන්තර්මුඛය / ගිවිසගැනීම</div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <div class="definition-box">
+          <strong>Interface</strong> එකක් කියන්නේ ඇතැම් <strong>rules / contract</strong> එකක් — "ඔයා මේ interface
+          implement කළාම, මේ methods <em>අනිවාර්යයෙන්ම</em> ලබා දෙන්න ඕනේ" කියලා කියනවා.<br><br>
+          <code style="color:#22d3ee">interface</code> keyword → define කරන්න.<br>
+          <code style="color:#22d3ee">implements</code> keyword → class එකක් interface follow කරනවා.<br><br>
+          Abstract class ට වඩා <strong>flexible</strong> — Java class එකකට <strong>interfaces කිහිපයක්</strong>
+          implements කරන්න පුළුවන් (Multiple Inheritance ගැටලුව නැතිව).
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">ජීවිතේ උදාහරණය</div>
+          <div class="example-text">
+            🔌 <strong style="color:#fff">Electric Socket (ප්ලග් සොකට්):</strong> Socket interface කියනවා "ඔයා plug-in
+            වෙන ඕනෑම device එකක් 230V accept කරන්න ඕනේ" කියලා.<br><br>
+            📺 TV, 💡 Fan, 🖨️ Printer — ඒ සෑම device එකක්ම socket interface follow කළාම socket එකට connect කරගන්න
+            පුළුවන්. Device types ගොඩාක් — ඒත් <strong>rules (interface) එකයි</strong>!
+          </div>
+        </div>
+
+        <div class="diagram-area">
+          <div class="diagram-title">Visual Diagram — Interface & Implementations</div>
+          <div class="interface-diagram">
+            <div class="iface-box">
+              <div class="cls-type">&lt;&lt;interface&gt;&gt;</div>
+              <div class="cls-name">🔌 Drawable</div>
+              <div class="cls-methods">
+                draw() — abstract<br>
+                getColor() — abstract
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="width:2px;height:20px;background:rgba(6,182,212,0.35);"></div>
+              <div style="font-size:0.65rem;color:var(--accent6);font-family:'JetBrains Mono';margin:3px 0;">implements
+              </div>
+            </div>
+            <div class="impl-arrow-row">
+              <div class="impl-branch">
+                <div class="impl-line"></div>
+                <div class="impl-class">
+                  <div class="cls-type">Class</div>
+                  <div class="cls-name">🔴 Circle</div>
+                  <div class="cls-methods">draw() ✔</div>
+                  <div class="cls-methods">getColor() ✔</div>
+                  <div class="impl-note">+ radius</div>
+                </div>
+              </div>
+              <div class="impl-branch">
+                <div class="impl-line"></div>
+                <div class="impl-class">
+                  <div class="cls-type">Class</div>
+                  <div class="cls-name">🟦 Rectangle</div>
+                  <div class="cls-methods">draw() ✔</div>
+                  <div class="cls-methods">getColor() ✔</div>
+                  <div class="impl-note">+ width, height</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Abstract vs Interface comparison -->
+        <div class="diagram-area">
+          <div class="diagram-title">Abstract Class vs Interface — වෙනස කුමක්ද?</div>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>කාරණය</th>
+                <th>Interface</th>
+                <th>Abstract Class</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Multiple Implement/Extend</td>
+                <td><span class="yes-badge">✔ ඔව් (කිහිපයක්)</span></td>
+                <td><span class="no-badge">✘ එකක් පමණයි</span></td>
+              </tr>
+              <tr>
+                <td>Constructor</td>
+                <td><span class="no-badge">✘ නෑ</span></td>
+                <td><span class="yes-badge">✔ තියෙනවා</span></td>
+              </tr>
+              <tr>
+                <td>Instance Variables</td>
+                <td><span class="no-badge">✘ constants පමණයි</span></td>
+                <td><span class="yes-badge">✔ ඔව්</span></td>
+              </tr>
+              <tr>
+                <td>Method Body (Default)</td>
+                <td><span class="yes-badge">✔ Java 8+ දී default methods</span></td>
+                <td><span class="yes-badge">✔ ඔව්</span></td>
+              </tr>
+              <tr>
+                <td>Access Modifiers</td>
+                <td>public පමණයි (by default)</td>
+                <td>ඕනෑ modifier</td>
+              </tr>
+              <tr>
+                <td>Keyword</td>
+                <td><code style="color:#22d3ee">implements</code></td>
+                <td><code style="color:#f87171">extends</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+            </div>
+            <div class="code-lang">Java — Interface</div>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <div class="code-content"><span class="cmt">// Interface එක define කිරීම (ගිවිසුම)</span>
+            <span class="kw">interface</span> <span class="cls">Drawable</span> {
+            <span class="cmt">// Methods — මෙහි ඇත්තේ rules පමණයි (method body නැත)</span>
+            <span class="kw">void</span> <span class="fn">draw</span>();
+            <span class="type">String</span> <span class="fn">getColor</span>();
+            }
+
+            <span class="cmt">// Circle පන්තිය — Drawable ගිවිසුමට යටත් වීම (implements)</span>
+            <span class="kw">class</span> <span class="cls">Circle</span> <span class="kw">implements</span> <span
+              class="cls">Drawable</span> {
+            <span class="kw">private</span> <span class="type">double</span> <span class="var">radius</span>;
+            <span class="kw">private</span> <span class="type">String</span> <span class="var">color</span>;
+
+            <span class="cmt">// Constructor එක</span>
+            <span class="cls">Circle</span>(<span class="type">double</span> <span class="var">r</span>, <span
+              class="type">String</span> <span class="var">c</span>) {
+            <span class="kw">this</span>.<span class="var">radius</span> = <span class="var">r</span>;
+            <span class="kw">this</span>.<span class="var">color</span> = <span class="var">c</span>;
+            }
+
+            <span class="cmt">// Interface එකෙහි ඇති methods අනිවාර්යයෙන්ම ක්‍රියාත්මක (implement) කළ යුතුය</span>
+            <span class="ann">@Override</span>
+            <span class="kw">public void</span> <span class="fn">draw</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"⭕ රවුම ඇඳේ — Radius:
+              "</span> + <span class="var">radius</span>);
+            }
+
+            <span class="ann">@Override</span>
+            <span class="kw">public</span> <span class="type">String</span> <span class="fn">getColor</span>() {
+            <span class="kw">return</span> <span class="var">color</span>;
+            }
+            }
+
+            <span class="cmt">// Rectangle පන්තිය — Drawable ගිවිසුමට යටත් වීම (implements)</span>
+            <span class="kw">class</span> <span class="cls">Rectangle</span> <span class="kw">implements</span> <span
+              class="cls">Drawable</span> {
+            <span class="kw">private</span> <span class="type">double</span> <span class="var">width</span>, <span
+              class="var">height</span>;
+            <span class="kw">private</span> <span class="type">String</span> <span class="var">color</span>;
+
+            <span class="cls">Rectangle</span>(<span class="type">double</span> <span class="var">w</span>, <span
+              class="type">double</span> <span class="var">h</span>, <span class="type">String</span> <span
+              class="var">c</span>) {
+            <span class="kw">this</span>.<span class="var">width</span> = <span class="var">w</span>;
+            <span class="kw">this</span>.<span class="var">height</span> = <span class="var">h</span>;
+            <span class="kw">this</span>.<span class="var">color</span> = <span class="var">c</span>;
+            }
+
+            <span class="ann">@Override</span>
+            <span class="kw">public void</span> <span class="fn">draw</span>() {
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"🟦 සෘජුකෝණාස්‍රය ඇඳේ
+              — "</span> + <span class="var">width</span> + <span class="str">"x"</span> + <span
+              class="var">height</span>);
+            }
+
+            <span class="ann">@Override</span>
+            <span class="kw">public</span> <span class="type">String</span> <span class="fn">getColor</span>() {
+            <span class="kw">return</span> <span class="var">color</span>;
+            }
+            }
+
+            <span class="kw">public class</span> <span class="cls">Main</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+            <span class="var">args</span>) {
+
+            <span class="cmt">// Interface reference type එකක් විදිහට පාවිච්චි කරන්න පුළුවන් (Polymorphism)</span>
+            <span class="cls">Drawable</span> <span class="var">shape1</span> = <span class="kw">new</span> <span
+              class="cls">Circle</span>(<span class="num">5.0</span>, <span class="str">"Red"</span>);
+            <span class="cls">Drawable</span> <span class="var">shape2</span> = <span class="kw">new</span> <span
+              class="cls">Rectangle</span>(<span class="num">4.0</span>, <span class="num">6.0</span>, <span
+              class="str">"Blue"</span>);
+
+            <span class="var">shape1</span>.<span class="fn">draw</span>();
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"වර්ණය: "</span> +
+            <span class="var">shape1</span>.<span class="fn">getColor</span>());
+
+            <span class="var">shape2</span>.<span class="fn">draw</span>();
+            <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"වර්ණය: "</span> +
+            <span class="var">shape2</span>.<span class="fn">getColor</span>());
+            }
+            }
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-label">Output</div>
+          <div class="output-line">⭕ රවුම ඇඳේ — Radius: 5.0</div>
+          <div class="output-line">වර්ණය: Red</div>
+          <div class="output-line">🟦 සෘජුකෝණාස්‍රය ඇඳේ — 4.0x6.0</div>
+          <div class="output-line">වර්ණය: Blue</div>
+        </div>
+
+        <!-- Multiple Interface example -->
+        <div style="margin-top:28px;">
+          <div class="diagram-title">Bonus — Multiple Interfaces (Java ගේ විශේෂ බලය!)</div>
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+              </div>
+              <div class="code-lang">Java — Multiple Interfaces</div>
+              <button class="copy-btn" onclick="copyCode(this)">copy</button>
+            </div>
+            <div class="code-content"><span class="kw">interface</span> <span class="cls">Flyable</span> {
+              <span class="kw">void</span> <span class="fn">fly</span>();
+              }
+
+              <span class="kw">interface</span> <span class="cls">Swimmable</span> {
+              <span class="kw">void</span> <span class="fn">swim</span>();
+              }
+
+              <span class="cmt">// Duck පන්තිය — Flyable (පියාසර කිරීම) සහ Swimmable (පිහිනීම) යන අතුරුමුහුණත් දෙකම
+                implement කිරීම හැක</span>
+              <span class="kw">class</span> <span class="cls">Duck</span> <span class="kw">implements</span> <span
+                class="cls">Flyable</span>, <span class="cls">Swimmable</span> {
+
+              <span class="ann">@Override</span>
+              <span class="kw">public void</span> <span class="fn">fly</span>() {
+              <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"🦆 තාරාවා ගුවනේ
+                පියාසර කරයි!"</span>);
+              }
+
+              <span class="ann">@Override</span>
+              <span class="kw">public void</span> <span class="fn">swim</span>() {
+              <span class="cls">System</span>.out.<span class="fn">println</span>(<span class="str">"🦆 තාරාවා වතුරේ
+                පිහිනයි!"</span>);
+              }
+              }
+
+              <span class="kw">public class</span> <span class="cls">Main</span> {
+              <span class="kw">public static void</span> <span class="fn">main</span>(<span class="type">String</span>[]
+              <span class="var">args</span>) {
+
+              <span class="cls">Duck</span> <span class="var">duck</span> = <span class="kw">new</span> <span
+                class="cls">Duck</span>();
+              <span class="var">duck</span>.<span class="fn">fly</span>();
+              <span class="var">duck</span>.<span class="fn">swim</span>();
+              }
+              }
+            </div>
+          </div>
+          <div class="output-box">
+            <div class="output-label">Output</div>
+            <div class="output-line">🦆 තාරාවා ගුවනේ පියාසර කරයි!</div>
+            <div class="output-line">🦆 තාරාවා වතුරේ පිහිනයි!</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary-section reveal">
+      <div class="summary-title">🎓 OOP සංකල්ප 6 — Quick Review</div>
+      <div class="concept-grid">
+        <div class="summary-pill s1" onclick="document.getElementById('concept-0').scrollIntoView({behavior:'smooth'})">
+          <div class="s-icon">🏗️</div>
+          <div class="s-eng">Class & Object</div>
+          <div class="s-sin">Blueprint → නිවස</div>
+        </div>
+        <div class="summary-pill s2" onclick="document.getElementById('concept-1').scrollIntoView({behavior:'smooth'})">
+          <div class="s-icon">🔐</div>
+          <div class="s-eng">Encapsulation</div>
+          <div class="s-sin">private + getters</div>
+        </div>
+        <div class="summary-pill s3" onclick="document.getElementById('concept-2').scrollIntoView({behavior:'smooth'})">
+          <div class="s-icon">🧬</div>
+          <div class="s-eng">Inheritance</div>
+          <div class="s-sin">extends keyword</div>
+        </div>
+        <div class="summary-pill s4" onclick="document.getElementById('concept-3').scrollIntoView({behavior:'smooth'})">
+          <div class="s-icon">🎭</div>
+          <div class="s-eng">Polymorphism</div>
+          <div class="s-sin">@Override method</div>
+        </div>
+        <div class="summary-pill s5" onclick="document.getElementById('concept-4').scrollIntoView({behavior:'smooth'})">
+          <div class="s-icon">🎯</div>
+          <div class="s-eng">Abstraction</div>
+          <div class="s-sin">abstract class</div>
+        </div>
+        <div class="summary-pill s6" onclick="document.getElementById('concept-5').scrollIntoView({behavior:'smooth'})">
+          <div class="s-icon">🔌</div>
+          <div class="s-eng">Interface</div>
+          <div class="s-sin">implements keyword</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
